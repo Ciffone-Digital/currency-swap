@@ -29,6 +29,15 @@ if ($response !== false) {
 // ...
 
 // Return the converted prices as a JSON response
+
 header('Content-Type: application/json');
 echo json_encode($converted_prices);
+
+// Should look like:
+// {
+//  "plan1": "$400.77",
+//  "plan2": "$727.20",
+//  "plan3": "$968.28"
+// }
+
 ?>
