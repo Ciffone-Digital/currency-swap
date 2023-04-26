@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Plan prices</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/convert-prices.js"></script>
 </head>
 <body>
   <h1>Choose a plan:</h1>
@@ -24,23 +26,5 @@
       Show prices in USD
     </label>
   </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(function() {
-      // Click event handler for the toggle switch
-      $('#toggle-currency').on('click', function() {
-        // Get the current currency and toggle it
-        var currency = $(this).prop('checked') ? 'USD' : 'GBP';
-
-        // Make an AJAX request to the PHP endpoint to get the converted prices
-        $.getJSON('/convert-prices.php', { currency: currency }, function(data) {
-          // Update the prices on the page with the converted prices
-          $('#plan1-price').text(data.plan1);
-          $('#plan2-price').text(data.plan2);
-          $('#plan3-price').text(data.plan3);
-        });
-      });
-    });
-  </script>
 </body>
 </html>
